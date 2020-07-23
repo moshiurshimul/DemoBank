@@ -21,9 +21,24 @@ document.getElementById('depositBtn').addEventListener('click', function() {
     //showing update to user on Balance box
     showingNewAmount('totalBalance', newDepositAmount);
     
-    // Make ready for input
+    // Make ready deposit input box
     document.getElementById('depositAmount').value = '';
     document.getElementById('depositAmount').focus();
+});
+
+// Withdraw Amount Handle
+document.getElementById('withdrawBtn').addEventListener('click', function() {
+    const withdrawAmount = getInputNumber('withdrawAmount');
+
+    // Showing update on withdraw box
+    showingNewAmount('currentWithdraw', withdrawAmount);
+
+    // Showing update on Balance box after complete withdrawal
+    showingNewAmount('totalBalance', -1*withdrawAmount);
+
+    // Make ready withdraw input box
+    document.getElementById('withdrawAmount').value = '';
+    document.getElementById('withdrawAmount').focus();
 });
 
 // function for getting input value
@@ -36,10 +51,10 @@ function getInputNumber(id) {
 
 
 // function for showing Balance update on box
-function showingNewAmount(id, newDepositAmount) {
+function showingNewAmount(id, amount) {
     const currentAmount = document.getElementById(id).innerText
     const currentNumber = parseFloat(currentAmount);
     //adding new amount
-    const currentTotal = currentNumber + newDepositAmount;
+    const currentTotal = currentNumber + amount;
     document.getElementById(id).innerText = currentTotal;
 }
