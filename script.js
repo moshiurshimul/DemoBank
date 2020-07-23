@@ -13,20 +13,25 @@ loginBtn.addEventListener('click', function() {
 
 document.getElementById('depositBtn').addEventListener('click', ()=> {
     // converting new deposit amount string to number
-    const depositAmount = document.getElementById('depositAmount').value; 
-    const depositAmountNumber = parseFloat(depositAmount);
+    const newDeposit = document.getElementById('depositAmount').value; 
+    const newDepositAmount = parseFloat(newDeposit);
     
-    // Converting current deposit amount
-    const currentDeposit = document.getElementById('currentDeposit').innerText;
-    const currentDepositNumber = parseFloat(currentDeposit);
+    // showing update to user on Deposit box
+    showingNewAmount('currentDeposit', newDepositAmount);
 
-    // adding two deposit value
-    const totalDeposit = depositAmountNumber + currentDepositNumber;
-
-    // Showing to user
-    document.getElementById('currentDeposit').innerText = totalDeposit;
+    //showing update to user on Balance box
+    showingNewAmount('totalBalance', newDepositAmount);
     
     // Make ready for input
     document.getElementById('depositAmount').value = '';
     document.getElementById('depositAmount').focus();
-})
+});
+
+// function for showing Balance update on box
+function showingNewAmount(id, newDepositAmount) {
+    const currentAmount = document.getElementById(id).innerText
+    const currentNumber = parseFloat(currentAmount);
+    //adding new amount
+    const currentTotal = currentNumber + newDepositAmount;
+    document.getElementById(id).innerText = currentTotal;
+}
