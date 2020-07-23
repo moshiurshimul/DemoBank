@@ -1,3 +1,3 @@
 # DemoBank
 
-Demo Bank Account, add, withdraw money.
+Simple Demo Bank Account, add, withdraw money.
