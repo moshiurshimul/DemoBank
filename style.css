@@ -11,3 +11,31 @@ body {
 .form-area input {
     margin: 20px 0;
 }
+
+#transaction-area {
+    display: none;
+}
+
+.status-area {
+    margin-top: 50px;
+}
+
+.status {
+    margin: 10px 20px;
+    padding: 50px;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px #cccccc87;
+}
+
+.deposit {
+    background-color: slateblue;
+}
+
+.withdraw {
+    background-color: lightsalmon;
+}
+
+.balance {
+    background-color: orange;
+}
