@@ -11,10 +11,9 @@ loginBtn.addEventListener('click', function() {
 
 // Deposit Amount Handle
 
-document.getElementById('depositBtn').addEventListener('click', ()=> {
-    // converting new deposit amount string to number
-    const newDeposit = document.getElementById('depositAmount').value; 
-    const newDepositAmount = parseFloat(newDeposit);
+document.getElementById('depositBtn').addEventListener('click', function() {
+    // converting new deposit amount string to number using get input function
+    const newDepositAmount = getInputNumber('depositAmount');
     
     // showing update to user on Deposit box
     showingNewAmount('currentDeposit', newDepositAmount);
@@ -26,6 +25,15 @@ document.getElementById('depositBtn').addEventListener('click', ()=> {
     document.getElementById('depositAmount').value = '';
     document.getElementById('depositAmount').focus();
 });
+
+// function for getting input value
+
+function getInputNumber(id) {
+    const userInput = document.getElementById(id).value;
+    const inputValue = parseFloat(userInput);
+    return inputValue;
+}
+
 
 // function for showing Balance update on box
 function showingNewAmount(id, newDepositAmount) {
