@@ -45,16 +45,23 @@ document.getElementById('withdrawBtn').addEventListener('click', function() {
 
 function getInputNumber(id) {
     const userInput = document.getElementById(id).value;
-    const inputValue = parseFloat(userInput);
-    return inputValue;
+    
+    if(userInput == "") { // if user input empty 
+        userInput = 0
+    }
+    else{
+        const inputValue = parseFloat(userInput);
+        return inputValue;
+    }
 }
 
 
 // function for showing Balance update on box
 function showingNewAmount(id, amount) {
-    const currentAmount = document.getElementById(id).innerText
-    const currentNumber = parseFloat(currentAmount);
-    //adding new amount
-    const currentTotal = currentNumber + amount;
-    document.getElementById(id).innerText = currentTotal;
+        const currentAmount = document.getElementById(id).innerText
+        const currentNumber = parseFloat(currentAmount);
+        
+        //adding new amount
+        const currentTotal = currentNumber + amount;
+        document.getElementById(id).innerText = currentTotal;
 }
